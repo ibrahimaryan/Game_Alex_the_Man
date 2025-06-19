@@ -23,9 +23,9 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        //Flip player when moving left-right
+        // Flip player when moving left-right
         if (horizontalInput > 0.01f)
         {
             transform.localScale = new Vector3(2, 2, 1);
@@ -34,44 +34,45 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-2, 2, 1);
         }
+
         // Deteksi lompat
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
         }
 
-        // Deteksi serangan
-        if (Input.GetKeyDown(KeyCode.J))
+        // Deteksi serangan normal (Jika tidak upgrade)
+        if (Input.GetKeyDown(KeyCode.J) && !isUpgraded)
         {
-            if(isUpgraded)
-            {
-                anim.SetTrigger("upgrade_attack");
-            }
-            else
-            {
-                anim.SetTrigger("attack");
-            }
+            anim.SetTrigger("attack");
         }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            anim.SetTrigger("upgrade_attack2");
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            anim.SetTrigger("upgrade_attack3");
-        }
-
 
         // Deteksi upgrade (tombol I)
         if (Input.GetKeyDown(KeyCode.I))
         {
-            isUpgraded = !isUpgraded; // Toggle antara normal dan upgrade
-            anim.SetBool("IsUpgraded", isUpgraded); // Perbarui parameter Animator
+            isUpgraded = !isUpgraded;
+            anim.SetBool("IsUpgraded", isUpgraded);
+        }
+
+        // Deteksi serangan upgrade (hanya jika isUpgraded)
+        if (isUpgraded)
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                anim.SetTrigger("attack1");
+            }
+            else if (Input.GetKeyDown(KeyCode.K))
+            {
+                anim.SetTrigger("attack2");
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                anim.SetTrigger("attack3");
+            }
         }
 
         // Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("upgrade_run", horizontalInput != 0);
         anim.SetBool("grounded", grounded);
     }
 
