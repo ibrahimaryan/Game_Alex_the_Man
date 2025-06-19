@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 399e6aeeb41d341498e7b8918fd6d1ac
+guid: 19fc12671073c4d48813883e12d08fae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,157 +93,68 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ultimate0
+      name: Attack_3_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 0
-        width: 19
-        height: 16
+        width: 90
+        height: 96
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a92318ca93db7947a397dea54f12a7e
-      internalID: -994549928
+      spriteID: ecf4e4bdc40b9264fa1e3a7b11505305
+      internalID: 1058697000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ultimate1
+      name: Attack_3_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 145
         y: 0
-        width: 19
-        height: 16
+        width: 109
+        height: 96
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d924d09664cae8d46a6e39d3a533006b
-      internalID: -491480117
+      spriteID: 16bb89c06722a9d46a5d105b69a8ce77
+      internalID: -332832205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ultimate2
+      name: Attack_3_2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 271
         y: 0
-        width: 19
-        height: 16
+        width: 111
+        height: 95
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea499760d07705b43940d7415a898d98
-      internalID: -238597319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ultimate3
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 0
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ffe2d2218e34cb47a27eacd90aed9da
-      internalID: 495601947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ultimate4
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 0
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f2be1b69e58d734b93c8ebd56b2fcfa
-      internalID: -1132046850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ultimate5
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 0
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5de3d55896182f428fb94cfa049a514
-      internalID: -930248093
+      spriteID: 50801eab9fefc334b8a8dbb1cf1b0eee
+      internalID: -200092597
       vertices: []
       indices: 
       edges: []
@@ -259,12 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ultimate0: -994549928
-      ultimate1: -491480117
-      ultimate2: -238597319
-      ultimate3: 495601947
-      ultimate4: -1132046850
-      ultimate5: -930248093
+      Attack_3_0: 1058697000
+      Attack_3_1: -332832205
+      Attack_3_2: -200092597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

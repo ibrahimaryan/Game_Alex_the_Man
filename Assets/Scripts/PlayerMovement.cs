@@ -7,15 +7,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool grounded;
     [SerializeField] private float speed;
+    private bool isUpgraded = false; // Melacak mode normal atau upgrade
 
     private void Awake()
     {
-        //Get reference for rigidbidy from object
+        // Get reference for rigidbody from object
         body = GetComponent<Rigidbody2D>();
 
-        //Get reference for animator from object
+        // Get reference for animator from object
         anim = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -34,16 +34,47 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-2, 2, 1);
         }
-
+        // Deteksi lompat
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
         }
 
-        //Set animator parameters
+        // Deteksi serangan
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if(isUpgraded)
+            {
+                anim.SetTrigger("upgrade_attack");
+            }
+            else
+            {
+                anim.SetTrigger("attack");
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            anim.SetTrigger("upgrade_attack2");
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            anim.SetTrigger("upgrade_attack3");
+        }
+
+
+        // Deteksi upgrade (tombol I)
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isUpgraded = !isUpgraded; // Toggle antara normal dan upgrade
+            anim.SetBool("IsUpgraded", isUpgraded); // Perbarui parameter Animator
+        }
+
+        // Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("upgrade_run", horizontalInput != 0);
         anim.SetBool("grounded", grounded);
     }
+
     private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, speed);
