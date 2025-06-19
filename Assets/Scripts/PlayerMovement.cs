@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
     [SerializeField] private float speed;
     private bool isUpgraded = false; // Melacak mode normal atau upgrade
-
+    private bool isProtect = false; // Melacak apakah sedang dalam mode proteksi
     private void Awake()
     {
         // Get reference for rigidbody from object
@@ -47,6 +47,22 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("attack");
         }
 
+        if (Input.GetKeyDown(KeyCode.S) && !isUpgraded && !isProtect)
+        {
+            isProtect = true;
+            anim.SetTrigger("protect");
+            anim.SetBool("isProtect", isProtect);
+        }
+        else if (Input.GetKeyUp(KeyCode.S) && isProtect)
+        {
+            isProtect = false;
+            anim.SetBool("isProtect", isProtect);
+        }
+        {
+            anim.SetTrigger("protect");
+            anim.SetBool("isProtect", isProtect);
+        }
+
         // Deteksi upgrade (tombol I)
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -69,11 +85,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetTrigger("attack3");
             }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                isProtect = true;
+                anim.SetTrigger("protect");
+                anim.SetBool("isProtect", isProtect);
+            }
+            else if (Input.GetKeyUp(KeyCode.S) && isProtect)
+            {
+                isProtect = false;
+                anim.SetBool("isProtect", isProtect);
+            }
         }
 
         // Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", grounded);
+        //anim.SetBool("grounded", grounded);
     }
 
     private void Jump()
