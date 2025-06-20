@@ -9,6 +9,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private bool isUpgraded = false; // Melacak mode normal atau upgrade
     private bool isProtect = false; // Melacak apakah sedang dalam mode proteksi
+    [SerializeField] private float attackDamage = 1f;
+    [SerializeField] private float attackRange = 1f;
+    [SerializeField] private LayerMask enemyLayer;
+    private void Attack()
+    {
+        // Deteksi enemy di sekitar player (misal pakai overlap circle)
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Health enemyHealth = enemy.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.terkenaDamage(attackDamage);
+            }
+        }
+    }
     private void Awake()
     {
         // Get reference for rigidbody from object
@@ -22,17 +38,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         // Flip player when moving left-right
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (horizontalInput > 0.01f)
         {
-            transform.localScale = new Vector3(2, 2, 1);
+            sr.flipX = false; // Hadap kanan
         }
         else if (horizontalInput < -0.01f)
         {
-            transform.localScale = new Vector3(-2, 2, 1);
+            sr.flipX = true; // Hadap kiri
         }
 
         // Deteksi lompat
@@ -45,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && !isUpgraded)
         {
             anim.SetTrigger("attack");
+            Attack();
         }
 
         if (Input.GetKeyDown(KeyCode.S) && !isUpgraded && !isProtect)
@@ -76,14 +93,17 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.J))
             {
                 anim.SetTrigger("attack1");
+                Attack();
             }
             else if (Input.GetKeyDown(KeyCode.K))
             {
                 anim.SetTrigger("attack2");
+                Attack();
             }
             else if (Input.GetKeyDown(KeyCode.L))
             {
                 anim.SetTrigger("attack3");
+                Attack();
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
