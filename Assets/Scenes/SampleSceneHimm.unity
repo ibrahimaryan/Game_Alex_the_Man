@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 1119519009}
   - component: {fileID: 1119519008}
   - component: {fileID: 1119519007}
+  - component: {fileID: 1119519012}
   m_Layer: 11
   m_Name: Eskimo
   m_TagString: Enemy
@@ -884,6 +885,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1119519012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119519006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d4c8058e08aa54d97244d6c56d3439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 0
 --- !u!1001 &8042130755743571358
 PrefabInstance:
   m_ObjectHideFlags: 0
