@@ -1586,6 +1586,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6315924897997241402, guid: 95e6536a20416624982a63269358b90b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315924897997241402, guid: 95e6536a20416624982a63269358b90b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7647939319328388154, guid: 95e6536a20416624982a63269358b90b, type: 3}
       propertyPath: m_Name
       value: Iker
@@ -1760,7 +1768,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1431733233286055569, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
       propertyPath: attackDamage
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1431733233286055569, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
       propertyPath: enemyLayer.m_Bits
