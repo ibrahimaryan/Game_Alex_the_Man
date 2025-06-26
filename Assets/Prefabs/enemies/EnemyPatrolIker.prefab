@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1553468439173435986}
   - component: {fileID: 5501598928914605853}
   m_Layer: 0
-  m_Name: EnemyPatrol
+  m_Name: EnemyPatrolIker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

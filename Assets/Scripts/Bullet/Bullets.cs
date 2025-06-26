@@ -38,7 +38,7 @@ public class Bullets : MonoBehaviour
         anim.SetTrigger("hit");  
     }
 
-    private void setDirection(float _direction)
+    public void SetDirection(float _direction)
     {
         lifeTime = 0;
         direction = _direction;
