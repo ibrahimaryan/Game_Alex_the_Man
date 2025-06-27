@@ -8,10 +8,11 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isEnemy = false;
     public float currentHealth { get; private set; }
     private Animator anim;
+    public float maxHealth => startingHealth;
 
     private void Awake()
     {
-        currentHealth = startingHealth;
+        currentHealth = maxHealth;
         anim = GetComponent<Animator>();
 
         // Kalau lupa centang, tapi pakai tag "Enemy"
@@ -21,7 +22,7 @@ public class Health : MonoBehaviour
 
     public void terkenaDamage(float damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");

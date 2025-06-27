@@ -26,17 +26,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775474619609068872}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.088805, y: 0.088805, z: 0.088805}
+  m_LocalScale: {x: -0.088805, y: 0.088805, z: 0.088805}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 247614298695090037}
-  m_Father: {fileID: 192535523948107048}
+  m_Father: {fileID: 3915250314609540061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.3375001, y: 2.2624998}
+  m_AnchoredPosition: {x: -1.3125, y: 2.2464998}
   m_SizeDelta: {x: 1, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &137407614617699711
@@ -136,7 +136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.079074, y: -23.82}
+  m_AnchoredPosition: {x: -14.28, y: -24}
   m_SizeDelta: {x: 1.866, y: 3.732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7157138919804861617
@@ -207,7 +207,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3915250314609540061}
-  - {fileID: 6746709792681218150}
   - {fileID: 8170449767836325978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -276,7 +275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.079075, y: -23.82}
+  m_AnchoredPosition: {x: -14.28, y: -24}
   m_SizeDelta: {x: 1.866, y: 3.732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1056586285599044714
@@ -437,6 +436,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3218609613718115725}
+  - {fileID: 6746709792681218150}
   m_Father: {fileID: 192535523948107048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8755508853857837738
