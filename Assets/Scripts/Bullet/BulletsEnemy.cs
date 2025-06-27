@@ -24,7 +24,6 @@ public class BulletsEnemy : EnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Tabrak: " + collision.name);
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first
         // gameObject.SetActive(false); //When this hits any object deactivate arrow
         DeactivateBullet();
@@ -34,7 +33,6 @@ public class BulletsEnemy : EnemyDamage
     {
         direction = _direction;
         lifetime = 0f; // reset waktu hidup peluru
-        Debug.Log("🎯 SetDirection dipanggil arah: " + direction);
 
         // Pastikan collider aktif
         if (TryGetComponent(out Collider2D col))
@@ -48,14 +46,11 @@ public class BulletsEnemy : EnemyDamage
 
     public void DeactivateBullet()
     {
-        Debug.Log("DeactivateBullet() dipanggil!");
         gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
-        Debug.Log("✅ Peluru aktif ulang");
-
         // Pastikan collider aktif
         if (TryGetComponent(out Collider2D col))
             col.enabled = true;

@@ -115,12 +115,10 @@ public class BosEnemy : MonoBehaviour
         {
             if (!b.activeInHierarchy)
             {
-                Debug.Log("🔁 Pakai peluru lama");
                 return b;
             }
         }
 
-        Debug.Log("✨ Buat peluru baru");
         GameObject newBullet = Instantiate(bulletPrefab, bulletHolder);
         newBullet.SetActive(false); // supaya nggak langsung aktif
         bulletPool.Add(newBullet);

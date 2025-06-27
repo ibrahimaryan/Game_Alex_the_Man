@@ -91,12 +91,10 @@ public class RangedEnemy : MonoBehaviour
         {
             if (!b.activeInHierarchy)
             {
-                Debug.Log("🔁 Gunakan kembali peluru lama");
                 return b;
             }
         }
 
-        Debug.Log("✨ Buat peluru baru!");
         GameObject newBullet = Instantiate(bulletPrefab, bulletHolder);
         bulletPool.Add(newBullet);
         return newBullet;
@@ -110,7 +108,6 @@ public class RangedEnemy : MonoBehaviour
                 return i;
         }
 
-        Debug.LogWarning("Semua peluru sedang aktif! Tidak ada peluru tersedia.");
         return -1; // tidak ada peluru yang bisa dipakai
     }
 
