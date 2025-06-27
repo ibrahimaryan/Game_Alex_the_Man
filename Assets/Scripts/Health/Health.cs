@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
+    [SerializeField] private bool isEnemy = false;
     public float currentHealth { get; private set; }
     private Animator anim;
 
@@ -12,6 +13,10 @@ public class Health : MonoBehaviour
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+
+        // Kalau lupa centang, tapi pakai tag "Enemy"
+        if (CompareTag("Enemy"))
+            isEnemy = true;
     }
 
     public void terkenaDamage(float damage)
@@ -20,8 +25,19 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
-        } else {
+        }
+        else
+        {
             anim.SetTrigger("die");
+        }
+    }
+    
+    // Dipanggil di akhir animasi 'die' (pakai Animation Event)
+    public void DestroyAfterDeath()
+    {
+        if (isEnemy && transform.root != null)
+        {
+            Destroy(transform.root.gameObject);
         }
     }
 }

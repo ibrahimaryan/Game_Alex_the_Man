@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4419116804631648704}
   m_Layer: 11
   m_Name: Adinata
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  isEnemy: 0
 --- !u!114 &1595473531409335910
 MonoBehaviour:
   m_ObjectHideFlags: 0
