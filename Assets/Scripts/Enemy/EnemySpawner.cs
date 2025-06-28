@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Enemy Prefabs")]
+   [Header("Enemy Prefabs")]
     [SerializeField] private GameObject ikerPrefab;
     [SerializeField] private GameObject eskimoPrefab;
 
@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float eskimoInterval = 7f;
     [SerializeField] private int eskimoCount = 3;
+
+    [Header("Spawn Point")]
+    [SerializeField] private Transform spawnPoint;
 
     void Start()
     {
@@ -26,11 +29,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             yield return new WaitForSeconds(interval);
-            Instantiate(
-                enemyPrefab,
-                new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0),
-                Quaternion.identity
-            );
+            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
         }
     }
 }

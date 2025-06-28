@@ -2,21 +2,15 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [Header("Patrol Points")]
-    [SerializeField] private Transform leftEdge;
-    [SerializeField] private Transform rightEdge;
-
     [Header("Enemy")]
     [SerializeField] private Transform enemy;
 
-    [Header("Movement parameters")]
-    [SerializeField] private float speed;
-    private Vector3 initScale;
-    private bool movingLeft;
+    [Header("Target")]
+    [SerializeField] private Transform player;
 
-    [Header("Idle Behaviour")]
-    [SerializeField] private float idleDuration;
-    private float idleTimer;
+    [Header("Movement Parameters")]
+    [SerializeField] private float speed = 2f;
+    private Vector3 initScale;
 
     [Header("Enemy Animator")]
     [SerializeField] private Animator anim;
@@ -33,54 +27,25 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (movingLeft)
-        {
-            if (enemy.position.x >= leftEdge.position.x)
-            {
-                MoveInDirection(-1);
-            }
-            else
-            {
-                // change direction
-                DirectionChange();
-            }
-        }
-        else
-        {
-            if (enemy.position.x <= rightEdge.position.x)
-            {
-                MoveInDirection(1);
-            }
-            else
-            {
-                // change direction
-                DirectionChange();
-            }
-        }
-    }
+        if (player == null) return;
 
-    private void DirectionChange()
-    {
-        anim.SetBool("moving", false);
-        idleTimer += Time.deltaTime;
+        float distanceX = player.position.x - enemy.position.x;
+        int direction = distanceX > 0 ? 1 : -1;
 
-        if (idleTimer > idleDuration)
-        {
-            movingLeft = !movingLeft;
-        }
+        // Gerak ke arah player
+        MoveInDirection(direction);
     }
 
     private void MoveInDirection(int _direction)
     {
-        idleTimer = 0;
         anim.SetBool("moving", true);
 
-        // make enemy face direction
-        enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,
-        initScale.y, initScale.z);
+        // Flip arah sesuai posisi player
+        enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction, initScale.y, initScale.z);
 
-        // move in that direction
+        // Bergerak ke arah player di sumbu X saja
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
-        enemy.position.y, enemy.position.z);
+                                     enemy.position.y,
+                                     enemy.position.z);
     }
 }
