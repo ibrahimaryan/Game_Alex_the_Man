@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 6771420449309975950}
   - component: {fileID: 1047905289520423164}
   - component: {fileID: 1595473531409335910}
+  - component: {fileID: 1851891319991923775}
   m_Layer: 11
   m_Name: Adinata
   m_TagString: Enemy
@@ -316,3 +317,18 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &1851891319991923775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077676881318355323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c2caf2fb62dd545a0d10032a12cf7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1965400145301986530, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+  speed: 2
+  anim: {fileID: 6771420449309975950}

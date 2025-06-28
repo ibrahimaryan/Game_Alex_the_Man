@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 2915397377551607726}
   - component: {fileID: 6016124445259439749}
   - component: {fileID: 6978695269690157373}
-  - component: {fileID: 2711531651782949929}
+  - component: {fileID: 6512107078830678648}
   m_Layer: 11
   m_Name: Eskimo
   m_TagString: Enemy
@@ -623,7 +623,7 @@ MonoBehaviour:
     m_Bits: 4096
   bulletPrefab: {fileID: 5889136945565889778, guid: cf119acf85b65b44dbef0080d8ec977e, type: 3}
   bulletHolder: {fileID: 8170449767836325978}
---- !u!114 &2711531651782949929
+--- !u!114 &6512107078830678648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -635,7 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c2caf2fb62dd545a0d10032a12cf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3915250314609540061}
   player: {fileID: 1965400145301986530, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
   speed: 2
   anim: {fileID: 2915397377551607726}

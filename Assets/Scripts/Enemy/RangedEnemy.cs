@@ -28,12 +28,12 @@ public class RangedEnemy : MonoBehaviour
     // references 
     private Animator anim;
     private Health playerHealth;
-    private EnemyPatrol enemyPatrol;
+    private EnemyChasing enemyPatrol;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        enemyPatrol = GetComponentInParent<EnemyChasing>();
 
         // Inisialisasi peluru awal jika ingin (optional)
         for (int i = 0; i < 5; i++)

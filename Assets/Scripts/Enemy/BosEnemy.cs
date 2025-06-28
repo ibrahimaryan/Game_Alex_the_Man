@@ -23,14 +23,14 @@ public class BosEnemy : MonoBehaviour
 
     private Animator anim;
     private Health playerHealth;
-    private EnemyPatrol enemyPatrol;
+    private EnemyChasing enemyPatrol;
     private List<GameObject> bulletPool = new List<GameObject>();
     private bool isAttacking = false;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        enemyPatrol = GetComponentInParent<EnemyChasing>();
 
         for (int i = 0; i < 5; i++)
         {

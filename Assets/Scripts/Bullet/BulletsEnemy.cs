@@ -24,10 +24,14 @@ public class BulletsEnemy : EnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision); //Execute logic from parent script first
-        // gameObject.SetActive(false); //When this hits any object deactivate arrow
-        DeactivateBullet();
+        base.OnTriggerEnter2D(collision); // Jalankan logika dari parent script dulu
+
+        if (collision.CompareTag("Player"))
+        {
+            DeactivateBullet(); // Nonaktifkan hanya jika tag-nya "Player Bullet"
+        }
     }
+
 
     public void SetDirection(float _direction)
     {
