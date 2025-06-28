@@ -535,9 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c2caf2fb62dd545a0d10032a12cf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEdge: {fileID: 0}
-  rightEdge: {fileID: 0}
   enemy: {fileID: 915241748021988109}
+  player: {fileID: 1965400145301986530, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
   speed: 2
-  idleDuration: 1
   anim: {fileID: 8833905807240241691}
