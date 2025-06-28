@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-   [Header("Enemy Prefabs")]
+    [Header("Enemy Prefabs")]
     [SerializeField] private GameObject ikerPrefab;
     [SerializeField] private GameObject eskimoPrefab;
 
@@ -18,10 +18,23 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Point")]
     [SerializeField] private Transform spawnPoint;
 
+    private List<GameObject> activeEnemies = new List<GameObject>();
+    public bool IsCleared => activeEnemies.Count == 0;
+
+    private void Awake()
+    {
+        enabled = false;
+    }
+
     void Start()
     {
         StartCoroutine(SpawnEnemy(ikerInterval, ikerPrefab, ikerCount));
         StartCoroutine(SpawnEnemy(eskimoInterval, eskimoPrefab, eskimoCount));
+    }
+
+    private void Update()
+    {
+        activeEnemies.RemoveAll(enemy => enemy == null); // Hapus musuh yang sudah dihancurkan
     }
 
     private IEnumerator SpawnEnemy(float interval, GameObject enemyPrefab, int count)
@@ -29,7 +42,9 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             yield return new WaitForSeconds(interval);
-            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+
+            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            activeEnemies.Add(enemy);
         }
     }
 }
