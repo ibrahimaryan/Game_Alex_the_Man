@@ -12,12 +12,12 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        healthBarTotal.fillAmount = playerHealth.currentHealth / 100;
+        healthBarTotal.fillAmount = 1f;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        healthBarCurrent.fillAmount = playerHealth.currentHealth / 100;
+        healthBarCurrent.fillAmount = playerHealth.currentHealth / playerHealth.maxHealth;
     }
 }

@@ -5,23 +5,40 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
+    [SerializeField] private bool isEnemy = false;
     public float currentHealth { get; private set; }
     private Animator anim;
+    public float maxHealth => startingHealth;
 
     private void Awake()
     {
-        currentHealth = startingHealth;
+        currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+
+        // Kalau lupa centang, tapi pakai tag "Enemy"
+        if (CompareTag("Enemy"))
+            isEnemy = true;
     }
 
     public void terkenaDamage(float damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
-        } else {
+        }
+        else
+        {
             anim.SetTrigger("die");
+        }
+    }
+    
+    // Dipanggil di akhir animasi 'die' (pakai Animation Event)
+    public void DestroyAfterDeath()
+    {
+        if (isEnemy && transform.root != null)
+        {
+            Destroy(transform.root.gameObject);
         }
     }
 }
