@@ -52,9 +52,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Deteksi lompat
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)&& isUpgraded)
         {
             Jump();
+            anim.SetTrigger("jump");
         }
 
         // Deteksi serangan normal (Jika tidak upgrade)
