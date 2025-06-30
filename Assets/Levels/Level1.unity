@@ -2381,6 +2381,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1431733233286055569, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431733233286055569, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
       propertyPath: attackDamage
       value: 5
       objectReference: {fileID: 0}
@@ -2439,6 +2443,22 @@ PrefabInstance:
     - target: {fileID: 2937205521837139541, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025499129619070076, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8441684
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025499129619070076, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15407503
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025499129619070076, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025499129619070076, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7974905263270216731, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
       propertyPath: m_SortingLayer
