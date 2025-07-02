@@ -10,6 +10,10 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image healthBarTotal;
     [SerializeField] private Image healthBarCurrent;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         healthBarTotal.fillAmount = 1f;

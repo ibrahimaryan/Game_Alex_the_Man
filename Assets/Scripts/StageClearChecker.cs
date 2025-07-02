@@ -13,7 +13,6 @@ public class StageClearChecker : MonoBehaviour
         {
             portalShown = true;
             portalTrigger.SetActive(true);
-            Debug.Log("Stage Clear! Portal Muncul.");
         }
     }
 
@@ -21,7 +20,7 @@ public class StageClearChecker : MonoBehaviour
     {
         foreach (EnemySpawner spawner in spawners)
         {
-            if (spawner != null && !spawner.IsCleared)
+            if (spawner != null && spawner.isActiveAndEnabled && !spawner.IsCleared)
                 return false;
         }
         return true;

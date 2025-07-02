@@ -55,8 +55,11 @@ public class EnemySpawner : MonoBehaviour
             activeEnemies.Add(enemy);
             enemiesSpawned++;
 
-            // Tambahkan script pelacak kematian ke enemy
-            EnemyDeathNotifier notifier = enemy.AddComponent<EnemyDeathNotifier>();
+            EnemyDeathNotifier notifier = enemy.GetComponent<EnemyDeathNotifier>();
+            if (notifier == null)
+            {
+                notifier = enemy.AddComponent<EnemyDeathNotifier>();
+            }
             notifier.spawner = this;
         }
     }
