@@ -19,15 +19,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
 
     private List<GameObject> activeEnemies = new List<GameObject>();
-    public bool IsCleared => activeEnemies.Count == 0;
+    private int totalEnemiesToSpawn;
+    private int enemiesSpawned = 0;
+    private int enemiesDefeated = 0;
+    public bool IsCleared => enemiesSpawned == totalEnemiesToSpawn && enemiesDefeated == totalEnemiesToSpawn;
 
     private void Awake()
     {
         enabled = false;
     }
 
-    void Start()
+    void OnEnable()
     {
+        // Hitung total musuh yang akan keluar
+        totalEnemiesToSpawn = ikerCount + eskimoCount;
+        enemiesSpawned = 0;
+        enemiesDefeated = 0;
+
         StartCoroutine(SpawnEnemy(ikerInterval, ikerPrefab, ikerCount));
         StartCoroutine(SpawnEnemy(eskimoInterval, eskimoPrefab, eskimoCount));
     }
@@ -45,6 +53,17 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             activeEnemies.Add(enemy);
+            enemiesSpawned++;
+
+            // Tambahkan script pelacak kematian ke enemy
+            EnemyDeathNotifier notifier = enemy.AddComponent<EnemyDeathNotifier>();
+            notifier.spawner = this;
         }
     }
+
+    public void NotifyEnemyDefeated()
+    {
+        enemiesDefeated++;
+    }
+
 }

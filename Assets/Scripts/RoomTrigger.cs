@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
-    [SerializeField] private EnemySpawner spawnerToActivate;
+    [SerializeField] private EnemySpawner[] spawnersToActivate;
 
     private bool triggered = false;
 
@@ -11,8 +11,11 @@ public class RoomTrigger : MonoBehaviour
         if (!triggered && collision.CompareTag("Player"))
         {
             triggered = true;
-            if (spawnerToActivate != null)
-                spawnerToActivate.enabled = true;
+            foreach (EnemySpawner spawner in spawnersToActivate)
+            {
+                if (spawner != null)
+                    spawner.enabled = true;
+            }
         }
     }
 

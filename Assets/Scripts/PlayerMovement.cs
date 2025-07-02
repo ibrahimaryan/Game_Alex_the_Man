@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         // Get reference for components from object
+        DontDestroyOnLoad(gameObject);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>(); // REVISI: Meng-cache komponen SpriteRenderer saat start

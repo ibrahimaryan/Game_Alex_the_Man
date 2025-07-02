@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleSceneHimm.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Levels/CutScene.unity
+    guid: 936c34e2888226440af5462efe06486a
+  - enabled: 1
+    path: Assets/Levels/Level1.unity
+    guid: 1c8329278b7466c4faa58f05bbff759e
+  - enabled: 1
+    path: Assets/Levels/Level2.unity
+    guid: cdd9d2d2922987645ad1168bf84cb8ec
   m_configObjects: {}
