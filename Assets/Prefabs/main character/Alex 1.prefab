@@ -173,11 +173,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  jumpForce: 14
+  minY: -2.5
+  maxY: 2.5
   attackDamage: 1
   attackRange: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  attack1Cooldown: 0.5
+  attack2Cooldown: 0.7
+  attack3Cooldown: 1
+  specialComboDelay: 0.4
 --- !u!95 &3377126900104729914
 Animator:
   serializedVersion: 5
