@@ -41,4 +41,9 @@ public class Health : MonoBehaviour
             Destroy(transform.root.gameObject);
         }
     }
+
+    public void AddHealth(float value)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
+    }
 }
