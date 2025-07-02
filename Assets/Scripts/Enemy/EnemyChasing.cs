@@ -37,17 +37,16 @@ public class EnemyChasing : MonoBehaviour
     {
         if (player == null) return;
 
-        float distanceX = player.position.x - transform.position.x;
-        int direction = (int)Mathf.Sign(distanceX);
+        Vector3 direction = (player.position - transform.position).normalized;
 
-        // Cek jika arah berubah
-        if (direction != lastDirection)
+        // Cek perubahan arah (X)
+        int facingDirection = (int)Mathf.Sign(direction.x);
+        if (facingDirection != lastDirection)
         {
             directionChangeTimer = directionChangeDelay;
-            lastDirection = direction;
+            lastDirection = facingDirection;
         }
 
-        // Kurangi timer jika masih ada delay
         if (directionChangeTimer > 0)
         {
             directionChangeTimer -= Time.deltaTime;
@@ -55,22 +54,12 @@ public class EnemyChasing : MonoBehaviour
             return;
         }
 
-        // Flip arah
-        transform.localScale = new Vector3(initScale.x * direction, initScale.y, initScale.z);
+        // Flip arah berdasarkan X
+        if (direction.x != 0)
+            transform.localScale = new Vector3(initScale.x * Mathf.Sign(direction.x), initScale.y, initScale.z);
 
-        if (Mathf.Abs(distanceX) > 0.05f)
-        {
-            anim.SetBool("moving", true);
-            transform.position = new Vector3(
-                transform.position.x + Time.deltaTime * direction * speed,
-                transform.position.y,
-                transform.position.z
-            );
-        }
-        else
-        {
-            anim.SetBool("moving", false);
-        }
+        transform.position += direction * speed * Time.deltaTime;
+        anim.SetBool("moving", true);
     }
 
     private void MoveInDirection(int _direction)
