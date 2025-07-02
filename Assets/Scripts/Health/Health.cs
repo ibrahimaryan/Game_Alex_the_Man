@@ -22,6 +22,12 @@ public class Health : MonoBehaviour
 
     public void terkenaDamage(float damage)
     {
+        // Jika ini player dan sedang protect, tidak menerima damage
+        PlayerMovement player = GetComponent<PlayerMovement>();
+        if (player != null && player.IsProtecting())
+        {
+            return;
+        }
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         if (currentHealth > 0)
         {
