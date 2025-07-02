@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 20
   isEnemy: 0
+  healthCollectiblePrefab: {fileID: 4943864003127876955, guid: 71a2d648415192b4b8ca77b3b80020e6, type: 3}
 --- !u!114 &6121780266969481918
 MonoBehaviour:
   m_ObjectHideFlags: 0
