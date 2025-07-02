@@ -1,97 +1,83 @@
+// PlayerMovement.cs (versi dibenarkan dan dibersihkan)
 using UnityEngine;
-using System.Collections; // Diperlukan untuk Coroutine
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     // --- Referensi Komponen ---
     private Rigidbody2D body;
     private Animator anim;
-    private SpriteRenderer sr; // REVISI: Variabel untuk cache SpriteRenderer
+    private SpriteRenderer sr;
 
-    // --- Statistik & Pengaturan Gerakan ---
+    // --- Statistik Gerakan ---
     [Header("Movement Settings")]
     [SerializeField] private float speed = 7f;
-    [SerializeField] private float jumpForce = 14f; // REVISI: Variabel khusus untuk lompat
+    [SerializeField] private float jumpForce = 14f;
+    [SerializeField] public float minY = -2.5f;
+    [SerializeField] public float maxY = 2.5f;
 
-    // --- Pengaturan Serangan ---
+    // --- Serangan ---
     [Header("Attack Settings")]
     [SerializeField] private float attackDamage = 1f;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private LayerMask enemyLayer;
 
-    // --- Pengaturan Cooldown Serangan Upgrade ---
     [Header("Attack Cooldowns")]
     [SerializeField] private float attack1Cooldown = 0.5f;
     [SerializeField] private float attack2Cooldown = 0.7f;
     [SerializeField] private float attack3Cooldown = 1.0f;
-    [SerializeField] private float specialComboDelay = 0.4f; // REVISI: Jeda antar serangan kombo
-    private float attack1Timer = 0f;
-    private float attack2Timer = 0f;
-    private float attack3Timer = 0f;
+    [SerializeField] private float specialComboDelay = 0.4f;
+    
+    private float attack1Timer;
+    private float attack2Timer;
+    private float attack3Timer;
 
-    // --- Status Player ---
+    // --- Status ---
     private bool grounded;
     private bool isUpgraded = true;
     private bool isProtect = false;
-    private bool isPerformingCombo = false; // REVISI: Mencegah kombo dijalankan berulang kali
+    private bool isPerformingCombo = false;
 
     private void Awake()
     {
-        // Get reference for components from object
         DontDestroyOnLoad(gameObject);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>(); // REVISI: Meng-cache komponen SpriteRenderer saat start
+        sr = GetComponent<SpriteRenderer>();
     }
-    private void Jump()
+
+    private void Update()
     {
-        // REVISI: Menggunakan jumpForce dan memicu animasi
-        body.velocity = new Vector2(body.velocity.x, jumpForce);
-        anim.SetTrigger("jump");
-        //grounded = false;
-    }
-    void Update()
-    {
-        // Jangan proses input jika sedang dalam kombo spesial
         if (isPerformingCombo)
         {
-            // Menghentikan gerakan horizontal saat kombo
             body.velocity = new Vector2(0, body.velocity.y);
-            anim.SetBool("run", false); // Pastikan animasi lari mati
+            anim.SetBool("run", false);
             return;
         }
 
-        // --- Gerakan Horizontal ---
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        float verticalInput = Input.GetAxis("Vertical");
 
-        // --- Membalik Arah Sprite ---
-        // REVISI: Menggunakan 'sr' yang sudah di-cache, bukan GetComponent()
+        // Gerakan
+        body.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
+
+        // Clamp Y agar tidak keluar layar
+        float clampedY = Mathf.Clamp(transform.position.y, minY, maxY);
+        transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
+
+        // Flip sprite
         if (horizontalInput > 0.01f)
-        {
-            sr.flipX = false; // Hadap kanan
-        }
+            sr.flipX = false;
         else if (horizontalInput < -0.01f)
-        {
-            sr.flipX = true; // Hadap kiri
-        }
+            sr.flipX = true;
 
-        // --- Update Timer Cooldown ---
-        if (attack1Timer > 0) attack1Timer -= Time.deltaTime;
-        if (attack2Timer > 0) attack2Timer -= Time.deltaTime;
-        if (attack3Timer > 0) attack3Timer -= Time.deltaTime;
-
-        // --- Input Aksi Player ---
-
-        // 1. Lompat
-        // REVISI: Lompat hanya bisa dilakukan saat di darat ('grounded')
-        if (Input.GetKey(KeyCode.Space) && isUpgraded)
+        // Lompat (jika upgrade aktif dan di tanah)
+        if (Input.GetKeyDown(KeyCode.Space) && isUpgraded && grounded)
         {
             Jump();
         }
 
-        // 2. Mode Bertahan (Protect)
-        // REVISI: Logika disatukan, tidak ada duplikasi
+        // Mode Proteksi
         if (Input.GetKey(KeyCode.S))
         {
             if (!isProtect)
@@ -101,31 +87,34 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetTrigger("protect");
             }
         }
-        else
+        else if (isProtect)
         {
-            if (isProtect)
-            {
-                isProtect = false;
-                anim.SetBool("isProtect", false);
-            }
+            isProtect = false;
+            anim.SetBool("isProtect", false);
         }
-        
-        // 3. Serangan (Berdasarkan status 'isUpgraded')
+
+        // Cooldown timer
+        if (attack1Timer > 0) attack1Timer -= Time.deltaTime;
+        if (attack2Timer > 0) attack2Timer -= Time.deltaTime;
+        if (attack3Timer > 0) attack3Timer -= Time.deltaTime;
+
+        // Serangan
         if (isUpgraded)
-        {
             HandleUpgradedAttacks();
-        }
         else
-        {
             HandleNormalAttack();
-        }
-        
-        // --- Set Parameter Animator ---
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", grounded); // REVISI: Diaktifkan kembali untuk animasi lompat/jatuh
+
+        // Animator
+        anim.SetBool("run", horizontalInput != 0 || verticalInput != 0);
+        anim.SetBool("grounded", grounded);
     }
 
-    // --- Logika Serangan ---
+    private void Jump()
+    {
+        body.velocity = new Vector2(body.velocity.x, jumpForce);
+        anim.SetTrigger("jump");
+        grounded = false;
+    }
 
     private void HandleNormalAttack()
     {
@@ -138,13 +127,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleUpgradedAttacks()
     {
-        // Kombo Spesial
         if (Input.GetKeyDown(KeyCode.I) && !isPerformingCombo)
         {
             StartCoroutine(SpecialCombo());
         }
 
-        // Serangan Biasa (Mode Upgrade)
         if (Input.GetKeyDown(KeyCode.J) && attack1Timer <= 0f)
         {
             anim.SetTrigger("attack1");
@@ -164,31 +151,26 @@ public class PlayerMovement : MonoBehaviour
             attack3Timer = attack3Cooldown;
         }
     }
-    
-    // REVISI: Menggunakan Coroutine untuk kombo spesial
+
     private IEnumerator SpecialCombo()
     {
         isPerformingCombo = true;
 
-        // Serangan 1
         anim.SetTrigger("attack1");
         Attack();
         yield return new WaitForSeconds(specialComboDelay);
 
-        // Serangan 2
         anim.SetTrigger("attack3");
         Attack();
         yield return new WaitForSeconds(specialComboDelay);
 
-        // Serangan 3
         anim.SetTrigger("attack2");
         Attack();
         yield return new WaitForSeconds(specialComboDelay);
-        
-        // Serangan 4 (Final)
+
         anim.SetTrigger("attack1");
         Attack();
-        yield return new WaitForSeconds(specialComboDelay); // Tunggu animasi selesai
+        yield return new WaitForSeconds(specialComboDelay);
 
         isPerformingCombo = false;
     }
@@ -206,20 +188,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // --- Logika Fisik & Status ---
-
-   
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
         }
     }
 
-    public bool IsProtecting()
-    {
-        return isProtect;
-    }
+    public bool IsProtecting() => isProtect;
 }
