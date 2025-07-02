@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     public float maxHealth => startingHealth;
+    [SerializeField] private GameObject healthCollectiblePrefab; // Drag prefab dari Inspector
 
     private void Awake()
     {
@@ -36,9 +37,20 @@ public class Health : MonoBehaviour
     // Dipanggil di akhir animasi 'die' (pakai Animation Event)
     public void DestroyAfterDeath()
     {
-        if (isEnemy && transform.root != null)
+         if (isEnemy)
         {
-            Destroy(transform.root.gameObject);
+            // Spawn health collectible di posisi musuh sebelum dihancurkan
+            Vector3 spawnPos = transform.position + new Vector3(0, -1.5f, 0);
+            if (healthCollectiblePrefab != null)
+            {
+                Instantiate(healthCollectiblePrefab, spawnPos, Quaternion.identity);
+            }
+
+            // Hancurkan musuh
+            if (transform.root != null)
+            {
+                Destroy(transform.root.gameObject);
+            }
         }
     }
 
