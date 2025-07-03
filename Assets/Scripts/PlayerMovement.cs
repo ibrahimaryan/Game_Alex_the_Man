@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attack2Cooldown = 0.7f;
     [SerializeField] private float attack3Cooldown = 1.0f;
     [SerializeField] private float specialComboDelay = 0.4f;
-    
+
     private float attack1Timer;
     private float attack2Timer;
     private float attack3Timer;
@@ -37,13 +37,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isUpgraded = true;
     private bool isProtect = false;
     private bool isPerformingCombo = false;
-
+    private BoxCollider2D boxCollider;
+    private Vector2 originalColliderOffset;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider != null)
+            originalColliderOffset = boxCollider.offset;
     }
 
     private void Update()
@@ -67,10 +71,17 @@ public class PlayerMovement : MonoBehaviour
 
         // Flip sprite
         if (horizontalInput > 0.01f)
+        {
             sr.flipX = false;
+            if (boxCollider != null)
+                boxCollider.offset = originalColliderOffset;
+        }
         else if (horizontalInput < -0.01f)
+        {
             sr.flipX = true;
-
+            if (boxCollider != null)
+                boxCollider.offset = new Vector2(-originalColliderOffset.x, originalColliderOffset.y);
+        }
         // Lompat (jika upgrade aktif dan di tanah)
         if (Input.GetKeyDown(KeyCode.Space) && isUpgraded && grounded)
         {
