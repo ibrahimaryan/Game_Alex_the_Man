@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [Header("Health Settings")]
     [SerializeField] private float startingHealth;
-    [SerializeField] private bool isEnemy = false;
     public float currentHealth { get; private set; }
-    private Animator anim;
     public float maxHealth => startingHealth;
-    [SerializeField] private GameObject healthCollectiblePrefab; // Drag prefab dari Inspector
+
+    [SerializeField] private bool isEnemy = false;
+
+    [Header("Prefab (For Enemy Only)")]
+    [SerializeField] private GameObject healthCollectiblePrefab; // Optional untuk enemy
+
+    [Header("Game Over")]
+    [SerializeField] private GameOverManager gameOverManager;
+
+
+    private Animator anim;
 
     private void Awake()
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
 
-        // Kalau lupa centang, tapi pakai tag "Enemy"
+        // Auto detect jika tag-nya "Enemy"
         if (CompareTag("Enemy"))
             isEnemy = true;
     }
@@ -29,7 +38,9 @@ public class Health : MonoBehaviour
         {
             return;
         }
+
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
@@ -38,28 +49,33 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("die");
 
-            if(!isEnemy) {
-                Invoke(nameof(Respawn), 1f); // Respawn player setelah 1 detik
+            if (!isEnemy && gameOverManager != null)
+            {
+                gameOverManager.TriggerGameOver();
             }
         }
     }
-    
-    // Dipanggil di akhir animasi 'die' (pakai Animation Event)
+
+    // Dipanggil melalui Animation Event di akhir animasi 'die'
     public void DestroyAfterDeath()
     {
-         if (isEnemy)
+        if (isEnemy)
         {
-            // Spawn health collectible di posisi musuh sebelum dihancurkan
+            // Spawn item (jika prefab tersedia)
             Vector3 spawnPos = transform.position + new Vector3(0, -1.5f, 0);
             if (healthCollectiblePrefab != null)
             {
                 Instantiate(healthCollectiblePrefab, spawnPos, Quaternion.identity);
             }
 
-            // Hancurkan musuh
+            // Hancurkan musuh (jika punya parent holder)
             if (transform.root != null)
             {
                 Destroy(transform.root.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }
@@ -69,8 +85,10 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
     }
 
-    public void Respawn() {
-        transform.position = CheckpointManager.Instance.GetLastCheckpointPosition();
-        currentHealth = startingHealth;
-    }
+public void SetGameOverManager(GameOverManager manager)
+{
+    gameOverManager = manager;
+}
+
+
 }

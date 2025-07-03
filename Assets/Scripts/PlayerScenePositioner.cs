@@ -1,10 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerScenePositioner : MonoBehaviour
 {
-    [SerializeField] private string targetScene = "Level2";
-    [SerializeField] private Vector2 spawnPosition;
+    [System.Serializable]
+    public class SceneSpawn
+    {
+        public string sceneName;
+        public Vector2 spawnPosition;
+    }
+
+    [SerializeField] private List<SceneSpawn> sceneSpawns;
 
     private void OnEnable()
     {
@@ -18,9 +25,13 @@ public class PlayerScenePositioner : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == targetScene)
+        foreach (var spawn in sceneSpawns)
         {
-            transform.position = spawnPosition;
+            if (spawn.sceneName == scene.name)
+            {
+                transform.position = spawn.spawnPosition;
+                break;
+            }
         }
     }
 }

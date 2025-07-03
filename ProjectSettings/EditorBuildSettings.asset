@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Levels/MainMenu.unity
+    guid: c647c4907252c9144bc4e37c070f55b5
+  - enabled: 1
+    path: Assets/Levels/Keluar.unity
+    guid: 32fcd590ef04ae942a8fb82d941bcaf3
+  - enabled: 1
     path: Assets/Levels/CutScene.unity
     guid: 936c34e2888226440af5462efe06486a
   - enabled: 1

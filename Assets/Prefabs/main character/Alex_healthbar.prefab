@@ -536,8 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c472761e3f2264d8de606dd3b1ac58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: Level2
-  spawnPosition: {x: 0, y: 0}
+  sceneSpawns: []
 --- !u!1 &6531456827537442000
 GameObject:
   m_ObjectHideFlags: 0
