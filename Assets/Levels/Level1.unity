@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  player: {fileID: 0}
+  player: {fileID: 1160010511}
   aheadDistance: 2
   cameraSpeed: 0.5
 --- !u!20 &519420031
@@ -2863,6 +2863,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fb5887a2e70f043b15466b4065e720, type: 3}
+--- !u!4 &1160010511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4726110569413143450, guid: b6fb5887a2e70f043b15466b4065e720, type: 3}
+  m_PrefabInstance: {fileID: 1160010510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289556338
 GameObject:
   m_ObjectHideFlags: 0

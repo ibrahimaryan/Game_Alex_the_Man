@@ -601,6 +601,7 @@ MonoBehaviour:
   isEnemy: 0
   healthCollectiblePrefab: {fileID: 0}
   gameOverManager: {fileID: 0}
+  defaultSpawnTransform: {fileID: 0}
 --- !u!114 &6615953716145338768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,8 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c841e970f42cd4db0b0c9172b1c460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCooldown: 1.8
-  rangedCooldown: 0.8
+  meleeCooldown: 1
+  rangedCooldown: 0.7
   meleeRange: 1.9
   rangedRange: 4
   damage: 10
