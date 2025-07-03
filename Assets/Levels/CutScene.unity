@@ -549,6 +549,97 @@ MonoBehaviour:
   playerHealth: {fileID: 1500112133}
   healthBarTotal: {fileID: 375483738}
   healthBarCurrent: {fileID: 3592610}
+--- !u!1 &93547850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93547854}
+  - component: {fileID: 93547853}
+  - component: {fileID: 93547852}
+  - component: {fileID: 93547851}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &93547851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93547850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c09295abc9c42949a974dac06dbff7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Level1
+--- !u!114 &93547852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93547850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2af539b5c9cb4904f87a74603451ee16, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 93547851}
+          m_TargetAssemblyTypeName: Cutscenekelevel1, Assembly-CSharp
+          m_MethodName: OnCutsceneFinished
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &93547853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93547850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6140d3cb932661142b3857960d77a4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapeScene: 
+  isEscapeToExit: 0
+--- !u!4 &93547854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93547850}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6708928, y: 0.22290175, z: -0.043788996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130857925
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +990,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1233,6 +1324,8 @@ MonoBehaviour:
   previousRoom: {fileID: 1813878751}
   nextRoom: {fileID: 1657378007}
   cam: {fileID: 0}
+  spawnersToCheck: []
+  blocker: {fileID: 0}
 --- !u!61 &222738704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1367,7 +1460,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1957,7 +2050,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2273,6 +2366,8 @@ MonoBehaviour:
   previousRoom: {fileID: 1657378007}
   nextRoom: {fileID: 1347761486}
   cam: {fileID: 0}
+  spawnersToCheck: []
+  blocker: {fileID: 0}
 --- !u!61 &426688982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3023,7 +3118,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3285,7 +3380,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3495,7 +3590,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4265,7 +4360,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4551,7 +4646,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4707,7 +4802,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5022,7 +5117,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5212,7 +5307,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5620,7 +5715,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5825,6 +5920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  isEnemy: 0
+  healthCollectiblePrefab: {fileID: 0}
+  gameOverManager: {fileID: 0}
+  defaultSpawnTransform: {fileID: 0}
 --- !u!1 &1501398307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,6 +6607,8 @@ PlayableDirector:
     value: {fileID: 1873376888}
   - key: {fileID: 3766406286652425850, guid: 9cc4129752fd5dc46a40df052c0042d6, type: 2}
     value: {fileID: 617963410}
+  - key: {fileID: 4067616231267235136, guid: 9cc4129752fd5dc46a40df052c0042d6, type: 2}
+    value: {fileID: 93547852}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1839976724
@@ -6820,7 +6921,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7070,6 +7171,8 @@ MonoBehaviour:
   previousRoom: {fileID: 1347761486}
   nextRoom: {fileID: 1657378007}
   cam: {fileID: 0}
+  spawnersToCheck: []
+  blocker: {fileID: 0}
 --- !u!61 &2144781469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7133,3 +7236,4 @@ SceneRoots:
   - {fileID: 1501398309}
   - {fileID: 482830503}
   - {fileID: 1873376889}
+  - {fileID: 93547854}
