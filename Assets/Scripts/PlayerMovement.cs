@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private SpriteRenderer sr;
+    private AudioSource audioSource;
 
     // --- Statistik Gerakan ---
     [Header("Movement Settings")]
@@ -27,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attack2Cooldown = 0.7f;
     [SerializeField] private float attack3Cooldown = 1.0f;
     [SerializeField] private float specialComboDelay = 0.4f;
-
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip specialComboSound;
     [Header("Scale Settings")]
     [Tooltip("Skala player saat dalam kondisi normal.")]
     [SerializeField] private Vector3 normalScale = new Vector3(2, 2, 1);
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -150,19 +154,30 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetTrigger("attack1");
             Attack();
+            PlayAttackSound(attackSound); 
             attack1Timer = attack1Cooldown;
         }
         else if (Input.GetKeyDown(KeyCode.K) && attack2Timer <= 0f)
         {
             anim.SetTrigger("attack2");
             Attack();
+            PlayAttackSound(attackSound); 
             attack2Timer = attack2Cooldown;
         }
         else if (Input.GetKeyDown(KeyCode.L) && attack3Timer <= 0f)
         {
             anim.SetTrigger("attack3");
             Attack();
+            PlayAttackSound(attackSound); 
             attack3Timer = attack3Cooldown;
+        }
+    }
+     private void PlayAttackSound(AudioClip clip)
+    {
+        // Gunakan PlayOneShot agar suara bisa tumpang tindih tanpa memotong satu sama lain
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
         }
     }
 
