@@ -225,9 +225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 43781559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86050e4d61d383d48bfb6aac28627919, type: 3}
+  m_Script: {fileID: 11500000, guid: 6140d3cb932661142b3857960d77a4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeScene: MainMenu
+  isEscapeToExit: 0
 --- !u!82 &43781564
 AudioSource:
   m_ObjectHideFlags: 0
