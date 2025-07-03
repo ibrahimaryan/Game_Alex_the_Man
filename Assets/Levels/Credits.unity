@@ -228,9 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86050e4d61d383d48bfb6aac28627919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterScene: 
-  escapeScene: MenuUtama
-  isEscapeForQuit: 0
 --- !u!82 &43781564
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241,7 +238,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 53d65b9b79d63f54e8deb4578e5be767, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ee7e71ea72eae40428dfae9efbec351d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -338,8 +335,8 @@ GameObject:
   - component: {fileID: 407074095}
   - component: {fileID: 407074094}
   - component: {fileID: 407074097}
-  - component: {fileID: 407074096}
   - component: {fileID: 407074098}
+  - component: {fileID: 407074099}
   m_Layer: 0
   m_Name: Card2
   m_TagString: Untagged
@@ -388,12 +385,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5adb6b165ca99cb44bf0304895d0801a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 075a9c6825aea6843a30c67b0734585d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 8.25, y: 14.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -414,21 +411,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &407074096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407074093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e0b5c7039bdd04f8e6fa56c39ff618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  faceSprite: {fileID: 21300000, guid: 6964e72f47de03242998eb260d80a37e, type: 3}
-  backSprite: {fileID: 21300000, guid: 5adb6b165ca99cb44bf0304895d0801a, type: 3}
-  flipSound: {fileID: 8300000, guid: 77a6880ab29e49445a05ce3b1a2a59d2, type: 3}
 --- !u!61 &407074097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -465,8 +447,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 19.2}
-    newSize: {x: 10.8, y: 19.2}
+    oldSize: {x: 8.25, y: 14.68}
+    newSize: {x: 8.25, y: 14.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -570,6 +552,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &407074099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407074093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be874c633cc0e204996fa1401775e740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceSprite: {fileID: 21300000, guid: 45eb79892b2c65340ac27810ab4a9d37, type: 3}
+  backSprite: {fileID: 21300000, guid: 075a9c6825aea6843a30c67b0734585d, type: 3}
+  flipSound: {fileID: 8300000, guid: 1d7e5b1526b22e642ad6db9d85be8d7f, type: 3}
 --- !u!1 &926693249
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +578,8 @@ GameObject:
   - component: {fileID: 926693251}
   - component: {fileID: 926693250}
   - component: {fileID: 926693253}
-  - component: {fileID: 926693252}
   - component: {fileID: 926693254}
+  - component: {fileID: 926693255}
   m_Layer: 0
   m_Name: Card1
   m_TagString: Untagged
@@ -631,12 +628,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5a5062545994c0845883f94914bd2f56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 054d885960a4b354f986627d18d3d7d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 8.25, y: 14.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -657,21 +654,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &926693252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926693249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e0b5c7039bdd04f8e6fa56c39ff618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  faceSprite: {fileID: 21300000, guid: 60aa13067819f8a4faa1ef5d49beadcb, type: 3}
-  backSprite: {fileID: 21300000, guid: 5a5062545994c0845883f94914bd2f56, type: 3}
-  flipSound: {fileID: 8300000, guid: 77a6880ab29e49445a05ce3b1a2a59d2, type: 3}
 --- !u!61 &926693253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -708,8 +690,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 19.2}
-    newSize: {x: 10.8, y: 19.2}
+    oldSize: {x: 8.25, y: 14.68}
+    newSize: {x: 8.25, y: 14.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -813,6 +795,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &926693255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926693249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be874c633cc0e204996fa1401775e740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceSprite: {fileID: 21300000, guid: cfb511ca1568e3242944f4fbb5f0427b, type: 3}
+  backSprite: {fileID: 21300000, guid: 054d885960a4b354f986627d18d3d7d0, type: 3}
+  flipSound: {fileID: 8300000, guid: 1d7e5b1526b22e642ad6db9d85be8d7f, type: 3}
 --- !u!1 &1582280234
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,8 +821,8 @@ GameObject:
   - component: {fileID: 1582280236}
   - component: {fileID: 1582280235}
   - component: {fileID: 1582280238}
-  - component: {fileID: 1582280237}
   - component: {fileID: 1582280239}
+  - component: {fileID: 1582280240}
   m_Layer: 0
   m_Name: Card3
   m_TagString: Untagged
@@ -874,12 +871,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c8fb4e39866c1634bbea2c2e40d341dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b53da6fbba18a042a8e7f5592fd4257, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 8.25, y: 14.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -900,21 +897,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1582280237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582280234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e0b5c7039bdd04f8e6fa56c39ff618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  faceSprite: {fileID: 21300000, guid: c612a809d83e7d8498126e3fbcd1cc22, type: 3}
-  backSprite: {fileID: 21300000, guid: c8fb4e39866c1634bbea2c2e40d341dc, type: 3}
-  flipSound: {fileID: 8300000, guid: 77a6880ab29e49445a05ce3b1a2a59d2, type: 3}
 --- !u!61 &1582280238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -951,8 +933,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 19.2}
-    newSize: {x: 10.8, y: 19.2}
+    oldSize: {x: 8.25, y: 14.68}
+    newSize: {x: 8.25, y: 14.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1056,6 +1038,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1582280240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582280234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be874c633cc0e204996fa1401775e740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceSprite: {fileID: 21300000, guid: 60c7e84611030cc4b8c1282355ee2d23, type: 3}
+  backSprite: {fileID: 21300000, guid: 2b53da6fbba18a042a8e7f5592fd4257, type: 3}
+  flipSound: {fileID: 8300000, guid: 1d7e5b1526b22e642ad6db9d85be8d7f, type: 3}
 --- !u!1 &1594819576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eff854a329ebaaf429278e079f73908f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c5c2bad76599954d9ac4a2f777e27c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1150,9 +1147,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2131549325}
   - component: {fileID: 2131549324}
-  - component: {fileID: 2131549323}
   - component: {fileID: 2131549322}
   - component: {fileID: 2131549326}
+  - component: {fileID: 2131549327}
   m_Layer: 0
   m_Name: Card4
   m_TagString: Untagged
@@ -1196,8 +1193,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 19.2}
-    newSize: {x: 10.8, y: 19.2}
+    oldSize: {x: 8.25, y: 14.68}
+    newSize: {x: 8.25, y: 14.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1205,21 +1202,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.8, y: 19.2}
   m_EdgeRadius: 0
---- !u!114 &2131549323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131549321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e0b5c7039bdd04f8e6fa56c39ff618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  faceSprite: {fileID: 21300000, guid: c3890d5db8858d145a2073e1c552cce3, type: 3}
-  backSprite: {fileID: 21300000, guid: 3073d36901fc6b94b8640627aeaa9c87, type: 3}
-  flipSound: {fileID: 8300000, guid: 77a6880ab29e49445a05ce3b1a2a59d2, type: 3}
 --- !u!212 &2131549324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1261,12 +1243,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3073d36901fc6b94b8640627aeaa9c87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f7645dfa75fd4340bf6183e46959e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 8.25, y: 14.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1383,6 +1365,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2131549327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131549321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be874c633cc0e204996fa1401775e740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceSprite: {fileID: 21300000, guid: 7729ad05ff9c6984a9ef74dc26a6a719, type: 3}
+  backSprite: {fileID: 21300000, guid: 3f7645dfa75fd4340bf6183e46959e78, type: 3}
+  flipSound: {fileID: 8300000, guid: 1d7e5b1526b22e642ad6db9d85be8d7f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
