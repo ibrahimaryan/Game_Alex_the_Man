@@ -37,6 +37,10 @@ public class Health : MonoBehaviour
         else
         {
             anim.SetTrigger("die");
+
+            if(!isEnemy) {
+                Invoke(nameof(Respawn), 1f); // Respawn player setelah 1 detik
+            }
         }
     }
     
@@ -67,5 +71,6 @@ public class Health : MonoBehaviour
 
     public void Respawn() {
         transform.position = CheckpointManager.Instance.GetLastCheckpointPosition();
+        currentHealth = startingHealth;
     }
 }
