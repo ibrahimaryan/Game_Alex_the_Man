@@ -488,6 +488,8 @@ MonoBehaviour:
   attack2Cooldown: 0.7
   attack3Cooldown: 1
   specialComboDelay: 0.4
+  normalScale: {x: 2, y: 2, z: 1}
+  upgradedScale: {x: 3, y: 3, z: 1}
 --- !u!95 &5303148221667449593
 Animator:
   serializedVersion: 5
@@ -524,6 +526,7 @@ MonoBehaviour:
   startingHealth: 100
   isEnemy: 0
   healthCollectiblePrefab: {fileID: 0}
+  gameOverManager: {fileID: 0}
 --- !u!114 &3964799013347324921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,8 +574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -767.46783, y: 456.99997}
-  m_SizeDelta: {x: 474.807, y: 267.237}
+  m_AnchoredPosition: {x: -746, y: 412}
+  m_SizeDelta: {x: 455.663, y: 455.663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6773837701892358996
 CanvasRenderer:
@@ -602,14 +605,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e4ea63c6c1eec04f8ca757ffd325109, type: 3}
+  m_Sprite: {fileID: 873634753, guid: 51ab251f02086414cb330076384aa569, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillMethod: 1
+  m_FillAmount: 0.36
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8147918589131867667

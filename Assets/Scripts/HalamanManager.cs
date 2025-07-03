@@ -30,10 +30,15 @@ public class HalamanManager : MonoBehaviour
     }
 
     public void MulaiPermainan() {
+        SceneManager.LoadScene("CutScene");
+    }
+    
+    public void MulaiPermainan1() {
         SceneManager.LoadScene("Level1");
     }
 
-    public void MulaiPermainan2() {
+    public void MulaiPermainan2()
+    {
         SceneManager.LoadScene("Level2");
     }
 

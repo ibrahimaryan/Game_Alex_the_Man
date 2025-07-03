@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
 
     [Header("Game Over")]
     [SerializeField] private GameOverManager gameOverManager;
+    [SerializeField] private Transform defaultSpawnTransform;
+
 
 
     private Animator anim;
@@ -49,10 +51,37 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("die");
 
-            if (!isEnemy && gameOverManager != null)
+            if (!isEnemy)
             {
-                gameOverManager.TriggerGameOver();
+                // Respawn player di checkpoint
+                Vector3 checkpointPos = CheckpointManager.Instance.GetLastCheckpointPosition();
+                if (checkpointPos == Vector3.zero && defaultSpawnTransform != null)
+                {
+                    checkpointPos = defaultSpawnTransform.position;
+                }
+                Transform checkpointRoom = CheckpointManager.Instance.GetCheckpointRoom();
+
+                transform.position = checkpointPos;
+                currentHealth = maxHealth;
+
+                // Reset animasi dan state player
+                // if (anim != null)
+                anim.Rebind(); // reset animasi
+                anim.SetTrigger("upgrade_idle");
+
+                // Optional: atur ulang kamera ke ruangan checkpoint
+                if (checkpointRoom != null)
+                {
+                    CameraController cam = FindObjectOfType<CameraController>();
+                    if (cam != null)
+                    {
+                        cam.MoveToNewRoom(checkpointRoom, true); // langsung snap kamera
+                    }
+                }
+
+                Debug.Log("Player respawned at checkpoint.");
             }
+
         }
     }
 
@@ -85,10 +114,9 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
     }
 
-public void SetGameOverManager(GameOverManager manager)
-{
-    gameOverManager = manager;
-}
-
+    public void SetGameOverManager(GameOverManager manager)
+    {
+        gameOverManager = manager;
+    }
 
 }

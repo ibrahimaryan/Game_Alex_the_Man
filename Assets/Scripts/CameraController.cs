@@ -6,28 +6,36 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float speed;
     private float currentPosX;
     private Vector3 velocity = Vector3.zero;
-    // Follow player (tidak digunakan sekarang)
-    //[SerializeField] private Transform player;
-    //[SerializeField] private float aheadDistance;
-    //[SerializeField] private float cameraSpeed;
-    //private float lookAhead;
+
+    //Follow player
+    [SerializeField] private Transform player;
+    [SerializeField] private float aheadDistance;
+    [SerializeField] private float cameraSpeed;
+    private float lookAhead;
 
     private void Update()
     {
-        transform.position = Vector3.SmoothDamp(
-            transform.position,
-            new Vector3(currentPosX, transform.position.y, transform.position.z),
-            ref velocity,
-            speed
-        );
+        //Room camera
+        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
+
+        //Follow player
+        //transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
+        //lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
     }
 
-    public void MoveToNewRoom(Transform _newRoom)
+    public void MoveToNewRoom(Transform _newRoom, bool instant = false)
     {
-        currentPosX = _newRoom.position.x;
+        if (_newRoom != null)
+        {
+            currentPosX = _newRoom.position.x;
+
+            if (instant)
+            {
+                transform.position = new Vector3(currentPosX, transform.position.y, transform.position.z);
+            }
+        }
     }
 
-    // Fungsi tambahan untuk langsung snap ke posisi kamar saat respawn
     public void SnapToRoom(Transform room)
     {
         if (room != null)
