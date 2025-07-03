@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attack3Cooldown = 1.0f;
     [SerializeField] private float specialComboDelay = 0.4f;
 
+    [Header("Scale Settings")]
+    [Tooltip("Skala player saat dalam kondisi normal.")]
+    [SerializeField] private Vector3 normalScale = new Vector3(2, 2, 1);
+    [Tooltip("Skala player saat dalam kondisi upgrade.")]
+    [SerializeField] private Vector3 upgradedScale = new Vector3(3, 3, 1);
     private float attack1Timer;
     private float attack2Timer;
     private float attack3Timer;
@@ -44,10 +49,6 @@ public class PlayerMovement : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
-        if (boxCollider != null)
-            originalColliderOffset = boxCollider.offset;
     }
 
     private void Update()
@@ -70,18 +71,20 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
 
         // Flip sprite
+        Vector3 targetScale = isUpgraded ? upgradedScale : normalScale;
+
+        // Atur skala berdasarkan input horizontal
         if (horizontalInput > 0.01f)
         {
-            sr.flipX = false;
-            if (boxCollider != null)
-                boxCollider.offset = originalColliderOffset;
+            // Hadap kanan
+            transform.localScale = targetScale;
         }
         else if (horizontalInput < -0.01f)
         {
-            sr.flipX = true;
-            if (boxCollider != null)
-                boxCollider.offset = new Vector2(-originalColliderOffset.x, originalColliderOffset.y);
+            // Hadap kiri
+            transform.localScale = new Vector3(-targetScale.x, targetScale.y, targetScale.z);
         }
+
         // Lompat (jika upgrade aktif dan di tanah)
         if (Input.GetKeyDown(KeyCode.Space) && isUpgraded && grounded)
         {
