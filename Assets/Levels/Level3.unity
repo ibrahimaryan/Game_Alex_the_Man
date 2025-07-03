@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &18556233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a485b8ebe94402439c599ece1bc3104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 10
+  timeLimit: 20
   waktuText: {fileID: 1833355774}
   timerCanvas: {fileID: 18556232}
 --- !u!1 &640169818
@@ -1076,6 +1076,10 @@ PrefabInstance:
     - target: {fileID: 2817151718073969281, guid: 3c7027c62a3629142b61896368bb574f, type: 3}
       propertyPath: m_Name
       value: Adinata
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076859538763921213, guid: 3c7027c62a3629142b61896368bb574f, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4419116804631648704, guid: 3c7027c62a3629142b61896368bb574f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1421,7 +1425,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: df0603d63f9a98b4fb343658cbd3f3e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1797,7 +1801,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: df0603d63f9a98b4fb343658cbd3f3e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2130,7 +2134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: df0603d63f9a98b4fb343658cbd3f3e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
