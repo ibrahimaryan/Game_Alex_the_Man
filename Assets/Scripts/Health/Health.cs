@@ -64,4 +64,8 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
     }
+
+    public void Respawn() {
+        transform.position = CheckpointManager.Instance.GetLastCheckpointPosition();
+    }
 }
