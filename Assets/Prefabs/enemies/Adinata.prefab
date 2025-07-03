@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   isEnemy: 0
+  healthCollectiblePrefab: {fileID: 0}
 --- !u!114 &1595473531409335910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,11 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c841e970f42cd4db0b0c9172b1c460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCooldown: 1
-  rangedCooldown: 0.4
+  meleeCooldown: 1.8
+  rangedCooldown: 0.9
   meleeRange: 1.9
-  rangedRange: 6
-  damage: 5
+  rangedRange: 4
+  damage: 6
   firepoint: {fileID: 5818979526629856580}
   bulletPrefab: {fileID: 5889136945565889778, guid: cf119acf85b65b44dbef0080d8ec977e, type: 3}
   bulletHolder: {fileID: 1883738901244671417}
@@ -330,5 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1965400145301986530, guid: c536d0c03d34cfb4aac46209c9168965, type: 3}
-  speed: 2
+  speed: 1.4
   anim: {fileID: 6771420449309975950}
+  chaseRange: 5
+  directionChangeDelay: 1.3
