@@ -1,7 +1,7 @@
 // PlayerMovement.cs (versi dibenarkan dan dibersihkan)
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     // --- Referensi Komponen ---
@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attack1Cooldown = 0.5f;
     [SerializeField] private float attack2Cooldown = 0.7f;
     [SerializeField] private float attack3Cooldown = 1.0f;
+    [SerializeField] private float specialComboCooldown = 5f; // waktu cooldown dalam detik
+    private float specialComboCooldownTimer = 0f;
     [SerializeField] private float specialComboDelay = 0.4f;
     [Header("Audio Settings")]
     [SerializeField] private AudioClip attackSound;
@@ -36,15 +38,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 normalScale = new Vector3(2, 2, 1);
     [Tooltip("Skala player saat dalam kondisi upgrade.")]
     [SerializeField] private Vector3 upgradedScale = new Vector3(3, 3, 1);
-    private float attack1Timer;
-    private float attack2Timer;
-    private float attack3Timer;
+   private float attack1Timer = 0f;
+    private float attack2Timer = 0f;
+    private float attack3Timer = 0f;
+    private bool isPerformingCombo = false;
 
     // --- Status ---
     private bool grounded;
     private bool isUpgraded = true;
     private bool isProtect = false;
-    private bool isPerformingCombo = false;
     private BoxCollider2D boxCollider;
     private Vector2 originalColliderOffset;
     private void Awake()
@@ -57,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "LastScene")
+        {
+            Destroy(gameObject);
+        }
         if (isPerformingCombo)
         {
             body.velocity = new Vector2(0, body.velocity.y);
@@ -112,10 +118,43 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Cooldown timer
+          // Cek apakah pemain sedang dalam kondisi menyerang (berdasarkan timer cooldown atau kombo)
+        bool isAttacking = attack1Timer > 0 || attack2Timer > 0 || attack3Timer > 0 || isPerformingCombo;
+
+        // --- Update Timer Cooldown (dipindahkan ke atas) ---
         if (attack1Timer > 0) attack1Timer -= Time.deltaTime;
         if (attack2Timer > 0) attack2Timer -= Time.deltaTime;
         if (attack3Timer > 0) attack3Timer -= Time.deltaTime;
 
+        // --- Logika Gerakan (Hanya jika TIDAK menyerang) ---
+        if (!isAttacking)
+        {
+            // Proses input gerakan horizontal
+            //float horizontalInput = Input.GetAxis("Horizontal");
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+
+            // Logika membalik arah sprite
+            if (horizontalInput > 0.01f)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (horizontalInput < -0.01f)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            
+            // Atur animasi lari
+            anim.SetBool("run", horizontalInput != 0);
+        }
+        else
+        {
+            // Jika sedang menyerang, paksa berhenti.
+            body.velocity = new Vector2(0, body.velocity.y);
+            anim.SetBool("run", false);
+        }
+
+        if (specialComboCooldownTimer > 0)
+        specialComboCooldownTimer -= Time.deltaTime;
         // Serangan
         if (isUpgraded)
             HandleUpgradedAttacks();
@@ -123,8 +162,8 @@ public class PlayerMovement : MonoBehaviour
             HandleNormalAttack();
 
         // Animator
-        anim.SetBool("run", horizontalInput != 0 || verticalInput != 0);
-        anim.SetBool("grounded", grounded);
+        //anim.SetBool("run", horizontalInput != 0 || verticalInput != 0);
+        //anim.SetBool("grounded", grounded);
     }
 
     private void Jump()
@@ -145,10 +184,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleUpgradedAttacks()
     {
-        if (Input.GetKeyDown(KeyCode.I) && !isPerformingCombo)
-        {
-            StartCoroutine(SpecialCombo());
-        }
+        if (Input.GetKeyDown(KeyCode.I) && !isPerformingCombo && specialComboCooldownTimer <= 0f)
+    {
+        StartCoroutine(SpecialCombo());
+        specialComboCooldownTimer = specialComboCooldown; // mulai cooldown
+    }
 
         if (Input.GetKeyDown(KeyCode.J) && attack1Timer <= 0f)
         {
@@ -187,18 +227,22 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetTrigger("attack1");
         Attack();
+        PlayAttackSound(attackSound);
         yield return new WaitForSeconds(specialComboDelay);
 
         anim.SetTrigger("attack3");
         Attack();
+        PlayAttackSound(attackSound);
         yield return new WaitForSeconds(specialComboDelay);
 
         anim.SetTrigger("attack2");
         Attack();
+        PlayAttackSound(attackSound);
         yield return new WaitForSeconds(specialComboDelay);
 
         anim.SetTrigger("attack1");
         Attack();
+        PlayAttackSound(attackSound);
         yield return new WaitForSeconds(specialComboDelay);
 
         isPerformingCombo = false;

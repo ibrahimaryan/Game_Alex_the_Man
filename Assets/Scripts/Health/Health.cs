@@ -53,13 +53,21 @@ public class Health : MonoBehaviour
 
             if (!isEnemy)
             {
+                Transform checkpointRoom = CheckpointManager.Instance.GetCheckpointRoom();
+                if (checkpointRoom != null)
+                {
+                    CameraController cam = FindObjectOfType<CameraController>();
+                    if (cam != null)
+                    {
+                        cam.MoveToNewRoom(checkpointRoom, true); // langsung snap kamera
+                    }
+                }
                 // Respawn player di checkpoint
                 Vector3 checkpointPos = CheckpointManager.Instance.GetLastCheckpointPosition();
                 if (checkpointPos == Vector3.zero && defaultSpawnTransform != null)
                 {
                     checkpointPos = defaultSpawnTransform.position;
                 }
-                Transform checkpointRoom = CheckpointManager.Instance.GetCheckpointRoom();
 
                 transform.position = checkpointPos;
                 currentHealth = maxHealth;
@@ -70,14 +78,6 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("upgrade_idle");
 
                 // Optional: atur ulang kamera ke ruangan checkpoint
-                if (checkpointRoom != null)
-                {
-                    CameraController cam = FindObjectOfType<CameraController>();
-                    if (cam != null)
-                    {
-                        cam.MoveToNewRoom(checkpointRoom, true); // langsung snap kamera
-                    }
-                }
 
                 Debug.Log("Player respawned at checkpoint.");
             }
