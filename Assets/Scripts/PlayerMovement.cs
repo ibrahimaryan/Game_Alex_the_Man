@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "LastScene")
+        if (SceneManager.GetActiveScene().name == "LastScene"|| SceneManager.GetActiveScene().name == "MainMenu")
         {
             Destroy(gameObject);
         }
@@ -102,20 +102,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode Proteksi
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (!isProtect)
-            {
-                isProtect = true;
-                anim.SetBool("isProtect", true);
-                anim.SetTrigger("protect");
-            }
-        }
-        else if (isProtect)
-        {
-            isProtect = false;
-            anim.SetBool("isProtect", false);
-        }
+        // if (Input.GetKey(KeyCode.S))
+        // {
+        //     if (!isProtect)
+        //     {
+        //         isProtect = true;
+        //         anim.SetBool("isProtect", true);
+        //         anim.SetTrigger("protect");
+        //     }
+        // }
+        // else if (isProtect)
+        // {
+        //     isProtect = false;
+        //     anim.SetBool("isProtect", false);
+        // }
 
         // Cooldown timer
           // Cek apakah pemain sedang dalam kondisi menyerang (berdasarkan timer cooldown atau kombo)

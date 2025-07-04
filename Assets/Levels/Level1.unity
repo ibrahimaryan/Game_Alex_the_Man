@@ -2865,6 +2865,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1253111084995674729, guid: b6fb5887a2e70f043b15466b4065e720, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3289200158400716554, guid: b6fb5887a2e70f043b15466b4065e720, type: 3}
       propertyPath: attackSound
       value: 

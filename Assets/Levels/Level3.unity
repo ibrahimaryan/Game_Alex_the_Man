@@ -834,7 +834,7 @@ Transform:
   m_GameObject: {fileID: 493905720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.27, y: -1.267, z: 0}
+  m_LocalPosition: {x: 7.64, y: -1.267, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1056,7 +1056,7 @@ Transform:
   m_GameObject: {fileID: 545167964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.89, y: -1.2, z: 0}
+  m_LocalPosition: {x: 7.88, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a485b8ebe94402439c599ece1bc3104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 30
+  timeLimit: 60
   waktuText: {fileID: 1833355774}
   timerCanvas: {fileID: 0}
 --- !u!1 &640169818
