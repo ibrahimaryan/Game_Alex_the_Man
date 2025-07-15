@@ -375,12 +375,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
-  eskimoPrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
+  ikerPrefab: {fileID: 8584603522544642369, guid: 60be52a1c44020447961c04e104faf8d, type: 3}
+  ikerCollectiblePrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
+  eskimoPrefab: {fileID: 5085018084688996201, guid: 51366bca4e3d9984b9a8af4855be32da, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
   ikerInterval: 3
-  ikerCount: 5
+  ikerCount: 4
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
-  eskimoCount: 2
+  eskimoCount: 1
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 107752513}
 --- !u!1 &188701572
 GameObject:
@@ -786,12 +792,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
-  eskimoPrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
+  ikerPrefab: {fileID: 8584603522544642369, guid: 60be52a1c44020447961c04e104faf8d, type: 3}
+  ikerCollectiblePrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
+  eskimoPrefab: {fileID: 5085018084688996201, guid: 51366bca4e3d9984b9a8af4855be32da, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
   ikerInterval: 3
-  ikerCount: 4
+  ikerCount: 3
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
   eskimoCount: 1
+  eskimoCollectibleInterval: 0
+  eskimoCollectibleCount: 0
   spawnPoint: {fileID: 444228470}
 --- !u!1 &477027119
 GameObject:
@@ -2029,12 +2041,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
-  eskimoPrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
+  ikerPrefab: {fileID: 8584603522544642369, guid: 60be52a1c44020447961c04e104faf8d, type: 3}
+  ikerCollectiblePrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
+  eskimoPrefab: {fileID: 5085018084688996201, guid: 51366bca4e3d9984b9a8af4855be32da, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
   ikerInterval: 3
-  ikerCount: 4
-  eskimoInterval: 4
-  eskimoCount: 1
+  ikerCount: 3
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
+  eskimoInterval: 0
+  eskimoCount: 0
+  eskimoCollectibleInterval: 4
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 801220216}
 --- !u!1 &947294029
 GameObject:
@@ -2520,12 +2538,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
-  eskimoPrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
+  ikerPrefab: {fileID: 8584603522544642369, guid: 60be52a1c44020447961c04e104faf8d, type: 3}
+  ikerCollectiblePrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
+  eskimoPrefab: {fileID: 5085018084688996201, guid: 51366bca4e3d9984b9a8af4855be32da, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
   ikerInterval: 3
-  ikerCount: 4
+  ikerCount: 3
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
   eskimoCount: 1
+  eskimoCollectibleInterval: 0
+  eskimoCollectibleCount: 0
   spawnPoint: {fileID: 1192955624}
 --- !u!1 &1197950089
 GameObject:
@@ -3829,12 +3853,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
-  eskimoPrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
+  ikerPrefab: {fileID: 8584603522544642369, guid: 60be52a1c44020447961c04e104faf8d, type: 3}
+  ikerCollectiblePrefab: {fileID: 8584603522544642369, guid: 183c8743c72152c48b20b56a3769c8d4, type: 3}
+  eskimoPrefab: {fileID: 5085018084688996201, guid: 51366bca4e3d9984b9a8af4855be32da, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5085018084688996201, guid: dd71e7fadbdf24b489bcf56685d2d6de, type: 3}
   ikerInterval: 3
-  ikerCount: 5
+  ikerCount: 4
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
-  eskimoCount: 2
+  eskimoCount: 1
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 2050172074}
 --- !u!1 &2056633862
 GameObject:

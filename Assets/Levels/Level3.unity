@@ -735,11 +735,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ikerPrefab: {fileID: 6214486441971855891, guid: 3c7027c62a3629142b61896368bb574f, type: 3}
+  ikerCollectiblePrefab: {fileID: 0}
   eskimoPrefab: {fileID: 0}
+  eskimoCollectiblePrefab: {fileID: 0}
   ikerInterval: 0
   ikerCount: 1
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 5
   eskimoInterval: 0
   eskimoCount: 0
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 3
   spawnPoint: {fileID: 471910840}
 --- !u!4 &471910840
 Transform:
@@ -1579,12 +1585,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
-  eskimoPrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
+  ikerPrefab: {fileID: 3954871123088428651, guid: 06b06f73d684acc42994aad8ca3444d2, type: 3}
+  ikerCollectiblePrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
+  eskimoPrefab: {fileID: 5931984653108688261, guid: 305c24c52ef4eba47bd66ae9daa1bb85, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
   ikerInterval: 3
-  ikerCount: 3
+  ikerCount: 1
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 2
   eskimoInterval: 4
-  eskimoCount: 3
+  eskimoCount: 2
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 789890669}
 --- !u!4 &789890669
 Transform:
@@ -1904,12 +1916,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
-  eskimoPrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
+  ikerPrefab: {fileID: 3954871123088428651, guid: 06b06f73d684acc42994aad8ca3444d2, type: 3}
+  ikerCollectiblePrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
+  eskimoPrefab: {fileID: 5931984653108688261, guid: 305c24c52ef4eba47bd66ae9daa1bb85, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
   ikerInterval: 3
-  ikerCount: 3
+  ikerCount: 2
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
-  eskimoCount: 3
+  eskimoCount: 2
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 813594545}
 --- !u!4 &813594545
 Transform:
@@ -1955,12 +1973,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ea259b8bc9a9d4caeda6b87cd2077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ikerPrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
-  eskimoPrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
+  ikerPrefab: {fileID: 3954871123088428651, guid: 06b06f73d684acc42994aad8ca3444d2, type: 3}
+  ikerCollectiblePrefab: {fileID: 3954871123088428651, guid: ef1a8c802d6072e4c8581168748ba348, type: 3}
+  eskimoPrefab: {fileID: 5931984653108688261, guid: 305c24c52ef4eba47bd66ae9daa1bb85, type: 3}
+  eskimoCollectiblePrefab: {fileID: 5931984653108688261, guid: 714003b72f078684dba30e7fc85e2eb3, type: 3}
   ikerInterval: 3
-  ikerCount: 3
+  ikerCount: 2
+  ikerCollectibleInterval: 5
+  ikerCollectibleCount: 1
   eskimoInterval: 4
-  eskimoCount: 2
+  eskimoCount: 1
+  eskimoCollectibleInterval: 7
+  eskimoCollectibleCount: 1
   spawnPoint: {fileID: 915694353}
 --- !u!4 &915694353
 Transform:

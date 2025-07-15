@@ -6,14 +6,22 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
     [SerializeField] private GameObject ikerPrefab;
+    [SerializeField] private GameObject ikerCollectiblePrefab;
     [SerializeField] private GameObject eskimoPrefab;
+    [SerializeField] private GameObject eskimoCollectiblePrefab;
 
     [Header("Spawn Settings")]
     [SerializeField] private float ikerInterval = 5f;
     [SerializeField] private int ikerCount = 5;
 
+    [SerializeField] private float ikerCollectibleInterval = 5f;
+    [SerializeField] private int ikerCollectibleCount = 5;
+
     [SerializeField] private float eskimoInterval = 7f;
     [SerializeField] private int eskimoCount = 3;
+
+    [SerializeField] private float eskimoCollectibleInterval = 7f;
+    [SerializeField] private int eskimoCollectibleCount = 3;
 
     [Header("Spawn Point")]
     [SerializeField] private Transform spawnPoint;
@@ -32,12 +40,14 @@ public class EnemySpawner : MonoBehaviour
     void OnEnable()
     {
         // Hitung total musuh yang akan keluar
-        totalEnemiesToSpawn = ikerCount + eskimoCount;
+        totalEnemiesToSpawn = ikerCount + eskimoCount + ikerCollectibleCount + eskimoCollectibleCount;
         enemiesSpawned = 0;
         enemiesDefeated = 0;
 
         StartCoroutine(SpawnEnemy(ikerInterval, ikerPrefab, ikerCount));
+        StartCoroutine(SpawnEnemy(ikerCollectibleInterval, ikerCollectiblePrefab, ikerCollectibleCount));
         StartCoroutine(SpawnEnemy(eskimoInterval, eskimoPrefab, eskimoCount));
+        StartCoroutine(SpawnEnemy(eskimoCollectibleInterval, eskimoCollectiblePrefab, eskimoCollectibleCount));
     }
 
     private void Update()
