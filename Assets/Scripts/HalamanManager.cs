@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class HalamanManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string escapeScene;
+    //public string escapeScene;
     public bool isEscapeToExit;
 
     void Start()
@@ -23,8 +23,8 @@ public class HalamanManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Name Scene: " + escapeScene);
-                SceneManager.LoadScene(escapeScene);
+                //Debug.Log("Name Scene: " + escapeScene);
+                //SceneManager.LoadScene(escapeScene);
             }
         }
     }

@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6140d3cb932661142b3857960d77a4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapeScene: 
+  escapeScene: MainMenu
   isEscapeToExit: 0
 --- !u!1 &524278587
 GameObject:
